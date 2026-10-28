@@ -1,0 +1,8 @@
+{
+  "name": "Jobing - Instant Text Sharing & Offline Clipboard",
+  "description": "Minimalist text sharing and offline clipboard utility with custom URLs, instant copy, and offline support.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}

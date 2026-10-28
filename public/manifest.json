@@ -1,0 +1,16 @@
+{
+  "name": "grey-job - Instant Text Sharing & Offline Clipboard",
+  "short_name": "grey-job",
+  "description": "Minimalist text sharing and offline clipboard utility with custom URLs, instant copy, and offline support.",
+  "start_url": "/c/",
+  "display": "standalone",
+  "background_color": "#f8f9fa",
+  "theme_color": "#18181b",
+  "icons": [
+    {
+      "src": "data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2'><path d='M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2'/><rect x='8' y='2' width='8' height='4' rx='1' ry='1'/></svg>",
+      "sizes": "192x192 512x512",
+      "type": "image/svg+xml"
+    }
+  ]
+}
