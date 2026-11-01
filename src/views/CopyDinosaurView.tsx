@@ -88,79 +88,51 @@ export const CopyDinosaurView: React.FC<CopyDinosaurViewProps> = ({ slug }) => {
   return (
     <div className="fixed inset-0 z-50 bg-[#202124] text-[#9aa0a6] font-sans overflow-auto select-none">
       <div className="max-w-[580px] mx-auto px-8 pt-[16vh] sm:pt-[18vh] text-left">
-        {/* Authentic Pixel Dinosaur with Ground Line */}
+        {/* Official Chrome Offline T-Rex with Ground Line */}
         <div className="mb-6">
           <div
             role="button"
             tabIndex={0}
             onClick={handleCopy}
-            className="inline-block cursor-pointer outline-none"
-            style={{
-              transform: isJumping ? 'translateY(-30px)' : 'translateY(0)',
-              transition: 'transform 180ms cubic-bezier(0.2, 0.8, 0.2, 1)',
-            }}
+            className="relative inline-block cursor-pointer outline-none"
             aria-label="Click dinosaur to copy"
           >
             <svg
-              width="48"
-              height="52"
-              viewBox="0 0 44 47"
+              width="64"
+              height="43"
+              viewBox="0 0 64 43"
               className="overflow-visible"
               style={{ shapeRendering: 'crispEdges' }}
             >
-              {/* Ground line with characteristic Chrome gaps */}
+              {/* Static ground line and tufts (stays on ground during jump) */}
               <path
-                d="M-12 46 h14 M6 46 h24 M34 46 h8 M46 46 h16"
-                stroke="#5f6368"
-                strokeWidth="1.5"
-                strokeLinecap="square"
+                shapeRendering="crispEdges"
+                fillRule="evenodd"
+                fill="#acacac"
+                d="M0,35h16v1h-16zM36,35h28v1h-28zM55,38h3v1h-3zM6,39h4v1h-4zM41,41h1v1h-1zM0,42h4v1h-4zM14,42h2v1h-2zM48,42h4v1h-4z"
               />
 
-              {/* Pixel Art Dinosaur */}
-              <rect x="22" y="0" width="18" height="2" fill="#bdc1c6" />
-              <rect x="21" y="2" width="21" height="2" fill="#bdc1c6" />
-              <rect x="21" y="4" width="22" height="2" fill="#bdc1c6" />
-              <rect x="21" y="6" width="22" height="2" fill="#bdc1c6" />
-              <rect x="21" y="8" width="22" height="2" fill="#bdc1c6" />
-              <rect x="21" y="10" width="12" height="2" fill="#bdc1c6" />
-              <rect x="21" y="12" width="19" height="2" fill="#bdc1c6" />
-              {/* Eye cutout */}
-              <rect x="24" y="4" width="2" height="2" fill="#202124" />
-
-              {/* Neck & Chest */}
-              <rect x="21" y="14" width="11" height="2" fill="#bdc1c6" />
-              <rect x="21" y="16" width="11" height="2" fill="#bdc1c6" />
-
-              {/* Upper Body & Arms */}
-              <rect x="19" y="18" width="14" height="2" fill="#bdc1c6" />
-              <rect x="17" y="20" width="18" height="2" fill="#bdc1c6" />
-              <rect x="34" y="22" width="4" height="2" fill="#bdc1c6" />
-              <rect x="36" y="24" width="2" height="2" fill="#bdc1c6" />
-
-              {/* Torso & Tail */}
-              <rect x="15" y="22" width="18" height="2" fill="#bdc1c6" />
-              <rect x="13" y="24" width="19" height="2" fill="#bdc1c6" />
-              <rect x="9" y="26" width="21" height="2" fill="#bdc1c6" />
-              <rect x="5" y="28" width="23" height="2" fill="#bdc1c6" />
-              <rect x="1" y="30" width="25" height="2" fill="#bdc1c6" />
-              <rect x="0" y="32" width="24" height="2" fill="#bdc1c6" />
-              <rect x="0" y="34" width="22" height="2" fill="#bdc1c6" />
-              <rect x="1" y="36" width="19" height="2" fill="#bdc1c6" />
-              <rect x="3" y="38" width="15" height="2" fill="#bdc1c6" />
-              <rect x="5" y="40" width="11" height="2" fill="#bdc1c6" />
-
-              {/* Legs */}
-              <rect x="9" y="42" width="3" height="2" fill="#bdc1c6" />
-              <rect x="9" y="44" width="5" height="2" fill="#bdc1c6" />
-              <rect x="15" y="42" width="3" height="2" fill="#bdc1c6" />
-              <rect x="15" y="44" width="5" height="2" fill="#bdc1c6" />
+              {/* Dinosaur T-Rex body (jumps up on click/space) */}
+              <g
+                style={{
+                  transform: isJumping ? 'translateY(-24px)' : 'translateY(0)',
+                  transition: 'transform 180ms cubic-bezier(0.2, 0.8, 0.2, 1)',
+                }}
+              >
+                <path
+                  shapeRendering="crispEdges"
+                  fillRule="evenodd"
+                  fill="#acacac"
+                  d="M32,0h16v2h2v9h-10v2h6v2h-8v4h4v4h-2v-2h-2v7h-2v3h-2v2h-2v8h2v2h-4v-6h-2v-2h-2v2h-2v2h-2v2h2v2h-4v-8h-2v-2h-2v-2h-2v-2h-2v-2h-2v-12h2v4h2v2h2v2h4v-2h2v-2h3v-2h3v-2h2v-13h2zM34,3h2v2h-2z"
+                />
+              </g>
             </svg>
           </div>
         </div>
 
-        {/* Heading */}
+        {/* Heading: Displays "Done" when copied, otherwise "Press space to play" */}
         <h1 className="text-[22px] font-medium text-[#e8eaed] mb-4 leading-normal tracking-normal transition-colors">
-          {copied ? 'Copied to clipboard!' : 'Press space to play'}
+          {copied ? 'Done' : 'Press space to play'}
         </h1>
 
         {/* Instructions */}
